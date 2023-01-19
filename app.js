@@ -1,9 +1,7 @@
-const name = 'James';
+const name = "James";
 
-const person = { first: name };
-
-console.log(person);
-
-const sayHelloLinting = (fName) => {
-  console.log(`Hello linting, ${fName}`);
+const sayHello = () => {
+  console.log(`Hello ${name}`);
 };
+
+module.exports = sayHello;
