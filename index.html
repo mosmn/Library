@@ -6,9 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
-    <title>Document</title>
+    <title>Library</title>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="header">
+            <h1>Library</h1>
+        </div>
+        <div class="main">
+            <div class="form">
+                <form action="">
+                    <input type="text" placeholder="Title" required>
+                    <input type="text" placeholder="Author" required>
+                    <input type="number" placeholder="Pages" required>
+                    <input type="checkbox" id="read">
+                    <label for="read">Read</label>
+                    <input type="submit" value="Add Book">
+                </form>
+            </div>
+            <div class="book-list">
+                <div class="book">
+                    <div class="title">The Design of Everyday Things</div>
+                    <div class="author">Don Norman</div>
+                    <div class="buttons">
+                        <button class="read">Read</button>
+                        <button class="delete">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
 </html>
