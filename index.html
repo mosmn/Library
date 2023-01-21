@@ -1,47 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <script src="main.js" defer></script>
     <title>Library</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="header">
-            <h1>Library</h1>
+      <div class="header">
+        <h1>Library</h1>
+      </div>
+      <div class="layout">
+        <div class="grid"><span class="gridlo">&#9783;</span> Grid</div>
+        <div class="list"><span class="listlo">&#9776;</span> List</div>
+      </div>
+      <div class="main">
+        <div class="description">
+          <p>
+            Library is a simple web app that allows you to keep track of all the
+            books you've read, are currently reading, or want to read.
+          </p>
+          <p>
+            Click the <span class="add">&#10011;</span> button to add a book to
+            your library.
+          </p>
         </div>
-        <div class="layout">
-            <div class="grid"><span class="gridlo">&#9783;</span> Grid</div>
-            <div class="list"><span class="listlo">&#9776;</span> List</div>
+        <div class="form">
+          <form action="">
+            <input type="text" placeholder="Title" required />
+            <input type="text" placeholder="Author" required />
+            <input type="number" placeholder="Pages" required />
+            <input type="checkbox" id="read" />
+            <label for="read">Read</label>
+            <input type="submit" value="&#10011;" />
+          </form>
         </div>
-        <div class="main">
-            <div class="description">
-                <p>Library is a simple web app that allows you to keep track of all the books you've read, are currently reading, or want to read.</p>
-                <p>Click the <span class="add">&#10011;</span> button to add a book to your library.</p>
+        <div class="book-list">
+          <div class="book">
+            <div class="title">The Design of Everyday Things</div>
+            <div class="author">Don Norman</div>
+            <div class="buttons">
+              <button class="read">Read</button>
+              <button class="delete">Delete</button>
             </div>
-            <div class="form">
-                <form action="">
-                    <input type="text" placeholder="Title" required>
-                    <input type="text" placeholder="Author" required>
-                    <input type="number" placeholder="Pages" required>
-                    <input type="checkbox" id="read">
-                    <label for="read">Read</label>
-                    <input type="submit" value=&#10011;>
-                </form>
-            </div>
-            <div class="book-list">
-                <div class="book">
-                    <div class="title">The Design of Everyday Things</div>
-                    <div class="author">Don Norman</div>
-                    <div class="buttons">
-                        <button class="read">Read</button>
-                        <button class="delete">Delete</button>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-</body>
+      </div>
+    </div>
+  </body>
 </html>
