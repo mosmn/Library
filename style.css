@@ -6,3 +6,28 @@
 h1 {
     font-family: 'MyFont';
 }
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: fixed 1fr;
+    grid-template-areas: 
+        "header layout"
+        "main main";
+}
+
+.header {
+    grid-area: header;
+}
+
+.layout {
+    grid-area: layout;
+}
+
+.main {
+    grid-area: main;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
