@@ -28,14 +28,16 @@
             your library.
           </p>
         </div>
-        <div class="form">
-          <form action="">
+        <div class="form-container">
+          <button class="add-book">&#10011;</button>
+          <form action="" style="display: none">
+            <button class="close" type="button">&#10006;</button>
             <input type="text" placeholder="Title" required />
             <input type="text" placeholder="Author" required />
             <input type="number" placeholder="Pages" required />
             <input type="checkbox" id="read" />
             <label for="read">Read</label>
-            <input type="submit" value="&#10011;" />
+            <input type="submit" value="Add" />
           </form>
         </div>
         <div class="book-container grid">
