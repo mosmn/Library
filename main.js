@@ -28,7 +28,7 @@ const handleLayoutClick = (e) => {
     labels.remove();
     labels = null;
   }
-}
+};
 
 layouts.forEach((layout) => {
   layout.addEventListener("click", handleLayoutClick);
@@ -37,13 +37,16 @@ layouts.forEach((layout) => {
 const addBook = document.querySelector(`.add-book`);
 const form = document.querySelector(`form`);
 const closeBtn = document.querySelector(`.close`);
+const container = document.querySelector(`.container`);
 
 const showForm = () => {
   form.style.display = "flex";
+  container.classList.add("form-open");
 };
 
 const hideForm = () => {
   form.style.display = "none";
+  container.classList.remove("form-open");
   form.reset();
 };
 
@@ -59,6 +62,6 @@ const handleWindowClick = (e) => {
   ) {
     hideForm();
   }
-}
+};
 
 window.addEventListener("click", handleWindowClick);
