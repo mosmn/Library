@@ -1,18 +1,22 @@
-function Book(title, author, pages, readStatus) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.readStatus = readStatus;
-}
+const layouts = document.querySelectorAll(`.layout div`);
+const bookContainer = document.querySelector(`.book-container`);
 
-Book.prototype.info = () =>
-  `${this.title} by ${this.author}, ${this.pages} pages, ${this.readStatus}`;
-
-const RichDadPoorDad = new Book(
-  "Rich Dad Poor Dad",
-  "Robert Kiyosaki",
-  300,
-  "not read yet"
-);
-
-console.log(RichDadPoorDad.info());
+layouts.forEach((layout) => {
+  layout.addEventListener(`click`, (e) => {
+    if (e.target.classList.contains(`grid`)) {
+      if (bookContainer.classList.contains(`list`)) {
+        bookContainer.classList.remove(`list`);
+        bookContainer.classList.add(`grid`);
+      } else {
+        bookContainer.classList.add(`grid`);
+      }
+    } else if (e.target.classList.contains(`list`)) {
+      if (bookContainer.classList.contains(`grid`)) {
+        bookContainer.classList.remove(`grid`);
+        bookContainer.classList.add(`list`);
+      } else {
+        bookContainer.classList.add(`list`);
+      }
+    }
+  });
+});
