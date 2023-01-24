@@ -69,29 +69,16 @@ const handleWindowClick = (e) => {
 window.addEventListener("click", handleWindowClick);
 
 // Logic
-const myLibrary = [
-  { title: "The Hobbit", author: "J.R.R. Tolkien", pages: 295, status: "Read" },
-  {
-    title: "The Lord of the Rings",
-    author: "J.R.R. Tolkien",
-    pages: 1216,
-    status: "Read",
-  },
-  {
-    title: "The Silmarillion",
-    author: "J.R.R. Tolkien",
-    pages: 480,
-    status: "Not Read",
-  },
-];
+const myLibrary = [];
 
-// function Book() {
-//   // the constructor...
-// }
-
-// function addBookToLibrary() {
-//   // do stuff here
-// }
+class Book {
+  constructor(title, author, pages, status) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.status = status;
+  }
+}
 
 const displayBooks = (myArray) => {
   myArray.forEach((book) => {
@@ -149,12 +136,18 @@ const deleteBook = (e, myArray) => {
 
 bookContainer.addEventListener("click", (e) => deleteBook(e, myLibrary));
 
-// const deleteBook = (e, myArray) => {
-//     if (e.target.classList.contains("delete")) {
-//         const book = e.target.parentElement;
-//         book.remove();
-//         myArray.splice(bookCard.indexOf(book), 1);
-//     }
-// };
+const confirmAdd = document.querySelector(`.confirm`);
+const addBookToLibrary = (e) => {
+  e.preventDefault();
+  const title = document.querySelector(`input[name="title"]`).value;
+  const author = document.querySelector(`input[name="author"]`).value;
+  const pages = document.querySelector(`input[name="pages"]`).value;
+  const status = document.querySelector(`input[name="read"]:checked`).value;
+  const book = new Book(title, author, pages, status);
+  myLibrary.push(book);
+  bookContainer.innerHTML = "";
+  displayBooks(myLibrary);
+  hideForm();
+};
 
-// bookContainer.addEventListener("click", (e) => deleteBook(e, myLibrary));
+confirmAdd.addEventListener("click", addBookToLibrary);
