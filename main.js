@@ -71,7 +71,7 @@ window.addEventListener("click", handleWindowClick);
 // Logic
 const myLibrary = [{ title: "The Hobbit", author: "J.R.R. Tolkien", pages: 295, status: "Read" }, 
 { title: "The Lord of the Rings", author: "J.R.R. Tolkien", pages: 1216, status: "Read" },
-{ title: "The Silmarillion", author: "J.R.R. Tolkien", pages: 480, status: "Read" }];
+{ title: "The Silmarillion", author: "J.R.R. Tolkien", pages: 480, status: "Not Read" }];
 
 // function Book() {
 //   // the constructor...
@@ -89,10 +89,35 @@ const displayBooks = (myArray) => {
         <div class="title">${book.title}</div>
         <div class="author">${book.author}</div>
         <div class="pages">${book.pages}</div>
-        <div class="status">${book.status}</div>
+        `;
+        if (book.status === "Read") {
+            bookDiv.innerHTML += `
+            <div class="rstatus">
+                <img src="imgs/check.png" alt="check" class="read">
+            </div>
+            `;
+        } else {
+            bookDiv.innerHTML += `
+            <div class="rstatus"></div>
+            `;
+        }
+        bookDiv.innerHTML += `
+        <button class="delete"><img src="imgs/remove.png" alt="delete"></button>
         `;
         bookContainer.appendChild(bookDiv);
     });
     };
 
 displayBooks(myLibrary);
+
+const toggleStatus = (e) => {
+    if (e.target.classList.contains("read")) {
+        e.target.parentElement.innerHTML = "";
+    } else if (e.target.classList.contains("rstatus")) {
+        e.target.innerHTML = `
+        <img src="imgs/check.png" alt="check" class="read">
+        `;
+    }
+};
+
+bookContainer.addEventListener("click", toggleStatus);

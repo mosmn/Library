@@ -51,8 +51,9 @@ body {
 }
 
 .book-container {
-  width: 100%;
+  width: 60%;
   height: 100%;
+  margin: 10px;
 }
 
 .book-container.grid {
@@ -77,6 +78,9 @@ body {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
+  margin: 5px;
+  justify-items: center;
+  align-items: center;
 }
 
 .book-container.grid .book-card {
@@ -123,4 +127,30 @@ form {
 .form-open {
   filter: blur(5px);
   transition: filter 0.5s ease-in-out;
+}
+
+img[alt="delete"],
+img[alt="check"] {
+  width: 20px;
+  height: 20px;
+}
+
+button[class="delete"] {
+  border: none;
+  border-radius: 10px;
+  background-color: transparent;
+  transition: background-color 0.5s ease-in-out;
+}
+
+img[alt="delete"]:hover {
+  filter: invert(100%);
+  width: 23px;
+  height: 23px;
+}
+
+.rstatus {
+  border: 1px solid #000;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
 }
