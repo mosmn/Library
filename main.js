@@ -69,9 +69,21 @@ const handleWindowClick = (e) => {
 window.addEventListener("click", handleWindowClick);
 
 // Logic
-const myLibrary = [{ title: "The Hobbit", author: "J.R.R. Tolkien", pages: 295, status: "Read" }, 
-{ title: "The Lord of the Rings", author: "J.R.R. Tolkien", pages: 1216, status: "Read" },
-{ title: "The Silmarillion", author: "J.R.R. Tolkien", pages: 480, status: "Not Read" }];
+const myLibrary = [
+  { title: "The Hobbit", author: "J.R.R. Tolkien", pages: 295, status: "Read" },
+  {
+    title: "The Lord of the Rings",
+    author: "J.R.R. Tolkien",
+    pages: 1216,
+    status: "Read",
+  },
+  {
+    title: "The Silmarillion",
+    author: "J.R.R. Tolkien",
+    pages: 480,
+    status: "Not Read",
+  },
+];
 
 // function Book() {
 //   // the constructor...
@@ -82,42 +94,67 @@ const myLibrary = [{ title: "The Hobbit", author: "J.R.R. Tolkien", pages: 295, 
 // }
 
 const displayBooks = (myArray) => {
-    myArray.forEach((book) => {
-        const bookDiv = document.createElement("div");
-        bookDiv.classList.add("book-card");
-        bookDiv.innerHTML = `
+  myArray.forEach((book) => {
+    const bookDiv = document.createElement("div");
+    bookDiv.classList.add("book-card");
+    bookDiv.innerHTML = `
         <div class="title">${book.title}</div>
         <div class="author">${book.author}</div>
         <div class="pages">${book.pages}</div>
         `;
-        if (book.status === "Read") {
-            bookDiv.innerHTML += `
+    if (book.status === "Read") {
+      bookDiv.innerHTML += `
             <div class="rstatus">
                 <img src="imgs/check.png" alt="check" class="read">
             </div>
             `;
-        } else {
-            bookDiv.innerHTML += `
+    } else {
+      bookDiv.innerHTML += `
             <div class="rstatus"></div>
             `;
-        }
-        bookDiv.innerHTML += `
-        <button class="delete"><img src="imgs/remove.png" alt="delete"></button>
+    }
+    bookDiv.innerHTML += `
+    <button class="delete"><img src="imgs/remove.png" alt="delete"></button>
         `;
-        bookContainer.appendChild(bookDiv);
-    });
-    };
+    bookContainer.appendChild(bookDiv);
+  });
+};
 
 displayBooks(myLibrary);
 
 const toggleStatus = (e) => {
-    if (e.target.classList.contains("read")) {
-        e.target.parentElement.innerHTML = "";
-    } else if (e.target.classList.contains("rstatus")) {
-        e.target.innerHTML = `
+  if (e.target.classList.contains("read")) {
+    e.target.parentElement.innerHTML = "";
+  } else if (e.target.classList.contains("rstatus")) {
+    e.target.innerHTML = `
         <img src="imgs/check.png" alt="check" class="read">
         `;
-    }
+  }
 };
 
 bookContainer.addEventListener("click", toggleStatus);
+
+const bookCard = document.querySelectorAll(`.book-card`);
+
+const deleteBook = (e, myArray) => {
+  if (
+    e.target.classList.contains("delete") ||
+    e.target.parentElement.classList.contains("delete")
+  ) {
+    const book = e.target.closest(".book-card");
+    book.remove();
+    myArray.splice(bookCard.indexOf(book), 1);
+  }
+};
+
+bookContainer.addEventListener("click", (e) => deleteBook(e, myLibrary));
+
+// const deleteBook = (e, myArray) => {
+//     if (e.target.classList.contains("delete")) {
+//         const book = e.target.parentElement;
+//         book.remove();
+//         myArray.splice(bookCard.indexOf(book), 1);
+//     }
+// };
+
+// bookContainer.addEventListener("click", (e) => deleteBook(e, myLibrary));
