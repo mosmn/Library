@@ -167,5 +167,4 @@ const addBookToLibrary = (e) => {
 
 confirmAdd.addEventListener("click", addBookToLibrary);
 
-// when book container has class grid make the list button opacity 0.5
-// when book container has class list make the grid button opacity 0.5
+// make book cards that are read go to the bottom of the list
