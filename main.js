@@ -166,5 +166,3 @@ const addBookToLibrary = (e) => {
 };
 
 confirmAdd.addEventListener("click", addBookToLibrary);
-
-// make book cards that are read go to the bottom of the list
