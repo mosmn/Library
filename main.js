@@ -1,3 +1,4 @@
+// Grid and List Layout
 const layouts = document.querySelectorAll(`.layout > div`);
 const bookContainer = document.querySelector(`.book-container`);
 let labels = null;
@@ -34,6 +35,7 @@ layouts.forEach((layout) => {
   layout.addEventListener("click", handleLayoutClick);
 });
 
+// Form
 const addBook = document.querySelector(`.add-book`);
 const form = document.querySelector(`form`);
 const closeBtn = document.querySelector(`.close`);
@@ -65,3 +67,32 @@ const handleWindowClick = (e) => {
 };
 
 window.addEventListener("click", handleWindowClick);
+
+// Logic
+const myLibrary = [{ title: "The Hobbit", author: "J.R.R. Tolkien", pages: 295, status: "Read" }, 
+{ title: "The Lord of the Rings", author: "J.R.R. Tolkien", pages: 1216, status: "Read" },
+{ title: "The Silmarillion", author: "J.R.R. Tolkien", pages: 480, status: "Read" }];
+
+// function Book() {
+//   // the constructor...
+// }
+
+// function addBookToLibrary() {
+//   // do stuff here
+// }
+
+const displayBooks = (myArray) => {
+    myArray.forEach((book) => {
+        const bookDiv = document.createElement("div");
+        bookDiv.classList.add("book-card");
+        bookDiv.innerHTML = `
+        <div class="title">${book.title}</div>
+        <div class="author">${book.author}</div>
+        <div class="pages">${book.pages}</div>
+        <div class="status">${book.status}</div>
+        `;
+        bookContainer.appendChild(bookDiv);
+    });
+    };
+
+displayBooks(myLibrary);
