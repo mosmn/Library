@@ -1,6 +1,8 @@
 // Grid and List Layout
 const layouts = document.querySelectorAll(`.layout > div`);
 const bookContainer = document.querySelector(`.book-container`);
+const gridBtn = document.querySelector(`.grid`);
+const listBtn = document.querySelector(`.list`);
 let labels = null;
 
 const createLabels = () => {
@@ -16,6 +18,17 @@ const createLabels = () => {
   return labels;
 };
 
+const handleOpacity = () => {
+  if (bookContainer.classList.contains("grid")) {
+    listBtn.style.opacity = "0.5";
+    gridBtn.style.opacity = "1";
+  } else if (bookContainer.classList.contains("list")) {
+    gridBtn.style.opacity = "0.5";
+    listBtn.style.opacity = "1";
+  }
+};
+handleOpacity();
+
 const handleLayoutClick = (e) => {
   const layoutClass = e.target.className;
   bookContainer.classList.remove("grid", "list");
@@ -29,6 +42,8 @@ const handleLayoutClick = (e) => {
     labels.remove();
     labels = null;
   }
+
+  handleOpacity();
 };
 
 layouts.forEach((layout) => {
@@ -121,7 +136,7 @@ const toggleStatus = (e) => {
 
 bookContainer.addEventListener("click", toggleStatus);
 
-const bookCard = document.querySelectorAll(`.book-card`);
+const bookCard = Array.from(document.querySelectorAll(".book-card"));
 
 const deleteBook = (e, myArray) => {
   if (
@@ -151,3 +166,6 @@ const addBookToLibrary = (e) => {
 };
 
 confirmAdd.addEventListener("click", addBookToLibrary);
+
+// when book container has class grid make the list button opacity 0.5
+// when book container has class list make the grid button opacity 0.5
